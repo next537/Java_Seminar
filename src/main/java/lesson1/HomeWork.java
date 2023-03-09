@@ -1,13 +1,12 @@
 package lesson1;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class HomeWork {
     public static void main(String[] args) {
-        //date(); //Задание №3
+        date(); //Задание №3
         //arrMinMax(); //Задание №1
-        arrVal();
+        //arrVal(); //Задание №2
     }
 
     private static void arrVal() {
@@ -39,7 +38,6 @@ public class HomeWork {
     }
 
 
-
     private static void arrMinMax() {
         int[] arr = {5, 10, 1, 4, 24};
         int min = arr[0];
@@ -53,27 +51,17 @@ public class HomeWork {
         System.out.println("Минимальное число " + min);
     }
 
-
     private static void date() {
         Scanner iScanner = new Scanner(System.in);
         System.out.println("Введите имя: ");
         String name = iScanner.nextLine();
-        System.out.println("Введите временной интервал: ");
-        int a = Integer.parseInt(iScanner.nextLine());
-        iScanner.close();
-        switch (a) {
-            case (0):
-                System.out.println("Доброе утро, " + name); // если время от 05:00 до 11:59
-                break;
-            case (1):
-                System.out.println("Добрый день, " + name); // если время от 12:00 до 17:59;
-                break;
-            case (2):
-                System.out.println("Добрый вечер, " + name); //если время от 18:00 до 22:59;
-                break;
-            case (3):
-                System.out.println("Доброй ночи, " + name); //если время от 23:00 до 4:59
-                break;
-        }
+        int h = (new Date()).getHours();
+        if (h > 5 && h < 12) {
+            System.out.println("Доброе утро, " + name);
+        } else if (h > 12 && h < 18) {
+            System.out.println("Добрый день, " + name);
+        } else if (h > 18 && h < 23) {
+            System.out.println("Добрый вечер, " + name);
+        } else System.out.println("Доброй ночи, " + name);
     }
 }
